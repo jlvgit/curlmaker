@@ -1,0 +1,45 @@
+<%= form_for(@curl) do |f| %>
+  <% if @curl.errors.any? %>
+    <ul class="error_list">
+      <% @curl.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="field">
+   <%= f.label :service %><br>
+   <%= f.select :service, [['Otto'],['Sawdust'],['Filbert']] %>
+  </div>
+  <br>
+  <div class="field">
+   <%= f.label :name %><br>
+   <%= f.text_field :name %>
+  </div>
+  <br>
+  <div class="field">
+   <%= f.label :method %><br>
+   <%= f.select :method, [['GET'],['POST'],['PUT'],['PATCH'],['DELETE']]%>
+  </div>
+  <br>
+  <div class="field">
+   <%= f.label :headers %><br>
+   <%= f.text_field :headers %>
+  </div>
+  <br>
+  <div class="field">
+   <%= f.label :url %><br>
+   <%= f.text_field :url %>
+  </div>
+  <br>
+  <div class="field">
+   <%= f.label :data %><br>
+   <%= f.text_area :data %>
+  </div>
+  <br>
+
+  <div class="actions">
+   <%= f.submit %>
+  </div>
+  <br>
+<% end %>

@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="absolute-wrapper"> </div>
+    <!-- Menu -->
+    <div class="side-menu">
+
+    <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <div class="brand-wrapper">
+            <!-- Hamburger -->
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Brand -->
+            <div class="brand-name-wrapper">
+              <%= link_to "Home", root_path, :class => 'navbar-brand'%>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Main Menu -->
+    <div class="side-menu-container">
+        <ul class="nav navbar-nav">
+          <% @services.each_pair do |service, subsections| %>
+              <li class="panel panel-default" id="dropdown">
+                <a data-toggle="collapse" href="#<%= service %>-dropdown">
+                  <%= service %>
+                <span class="caret"></span></a>
+
+                <!-- Dropdown level 1 -->
+                <div id="<%= service %>-dropdown" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="nav navbar-nav">
+
+                            <!-- Dropdown level 2 -->
+                            <% subsections.each do |section| %>
+                            <li class="panel panel-default" id="dropdown">
+                                <a data-toggle="collapse" href="#<%= section %>dropdown">
+                                   <%= section %>
+                                 <span class="caret"></span>
+                                </a>
+                                <div id="<%= section %>dropdown" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                          <% @curls.each  do |curl| %>
+                                            <li><%= link_to curl.name, curl%></li>
+                                          <% end %>
+                                            <li><a href="#">Link</a></li>
+                                            <li><a href="#">Link</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                          <% end %>
+                        </ul>
+                    </div>
+                </div>
+          <% end %>
+        </ul>
+    </div>
+  </nav>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817154523) do
+ActiveRecord::Schema.define(version: 20160817191836) do
 
   create_table "curls", force: :cascade do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160817154523) do
     t.text     "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "service"
   end
 
 end
