@@ -14,6 +14,18 @@
   margin-right: 0;
   margin-left: 0;
 }
+
+ul {
+  width: 100%;
+  display: table;
+  table-layout: fixed; /* optional */
+}
+
+ul li {
+  display: table-cell;
+  width: auto;
+  text-align: left;
+}
 /*
     Sometimes the sub menus get too large for the page and prevent the menu from scrolling, limiting functionality
     A quick fix is to change .side-menu to
@@ -31,13 +43,13 @@
     This will allow the menu to say fixed on body scoll and scoll on the side bar if it get to large
 */
 
-.absolute-wrapper{
-    position: fixed;
-    width: 300px;
-    height: 100%;
-    background-color: #f8f8f8;
-    border-right: 1px solid #e7e7e7;
-}
+// .absolute-wrapper{
+//     position: fixed;
+//     width: 300px;
+//     height: 100%;
+//     background-color: #f8f8f8;
+//     border-right: 1px solid #e7e7e7;
+// }
 
 .side-menu {
   position: fixed;
@@ -255,7 +267,7 @@
     transform-style: preserve-3d;
   }
   /* Uncomment for scrollable menu -> see top comment */
-  /*.absolute-wrapper{
+  .absolute-wrapper{
         width:285px;
         -moz-animation: slideout 300ms forwards;
         -o-animation: slideout 300ms forwards;
@@ -263,7 +275,7 @@
         animation: slideout 300ms forwards;
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
-    }*/
+    }
   @-moz-keyframes bodyslidein {
     0% {
       left: 0;

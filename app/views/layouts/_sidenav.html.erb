@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="absolute-wrapper"> </div>
+    <!-- <div class="absolute-wrapper"> </div> -->
     <!-- Menu -->
     <div class="side-menu">
 
@@ -26,6 +26,7 @@
     <!-- Main Menu -->
     <div class="side-menu-container">
         <ul class="nav navbar-nav">
+
           <% @services.each_pair do |service, subsections| %>
               <li class="panel panel-default" id="dropdown">
                 <a data-toggle="collapse" href="#<%= service %>-dropdown">
@@ -34,32 +35,32 @@
 
                 <!-- Dropdown level 1 -->
                 <div id="<%= service %>-dropdown" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <ul class="nav navbar-nav">
+                  <div class="panel-body">
+                    <ul class="nav navbar-nav">
 
-                            <!-- Dropdown level 2 -->
-                            <% subsections.each do |section| %>
-                            <li class="panel panel-default" id="dropdown">
-                                <a data-toggle="collapse" href="#<%= section %>dropdown">
-                                   <%= section %>
-                                 <span class="caret"></span>
-                                </a>
-                                <div id="<%= section %>dropdown" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                          <% @curls.each  do |curl| %>
-                                            <li><%= link_to curl.name, curl%></li>
-                                          <% end %>
-                                            <li><a href="#">Link</a></li>
-                                            <li><a href="#">Link</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                          <% end %>
-                        </ul>
-                    </div>
+                      <!-- Dropdown level 2 -->
+                      <% subsections.each do |section| %>
+                        <li class="panel panel-default" id="dropdown">
+                          <a data-toggle="collapse" href="#<%= section %>dropdown">
+                             <%= section %>
+                           <span class="caret"></span>
+                          </a>
+
+                          <div id="<%= section %>dropdown" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <ul class="nav navbar-nav">
+                                <% @curls.each  do |curl| %>
+                                  <li><%= link_to curl.name, curl%></li>
+                                <% end %>
+                              </ul>
+                            </div>
+                          </div>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
                 </div>
+              </li>
           <% end %>
         </ul>
     </div>
