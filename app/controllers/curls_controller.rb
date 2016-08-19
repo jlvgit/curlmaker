@@ -1,7 +1,6 @@
 class CurlsController < ApplicationController
 
   def index
-    @curl = Curl.all
   end
 
   def new
