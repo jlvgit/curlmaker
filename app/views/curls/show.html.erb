@@ -1,6 +1,23 @@
-<!-- Main Content -->
 <div class="container-fluid">
-    <div class="side-body">
-       <h1> test </h1>
+  <div class="side-body">
+
+    <h3><%= @curl.service + " - " + @curl.name rescue "" %></h3>
+
+    <hr>
+
+    <%= params.inspect %>
+    <div class="row">
+
+      <div class="col-xs-4">
+        <%= render 'data_forms' %>
+      </div>
+
+      <div class="col-xs-8">
+        <pre><%= create_curl_text(@curl, params) %></pre>
+      </div>
+
     </div>
+
+
+  </div>
 </div>

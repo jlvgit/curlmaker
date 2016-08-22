@@ -371,3 +371,33 @@ ul li {
     margin: 0;
   }
 }
+.entry:not(:first-of-type)
+{
+    margin-top: 10px;
+}
+
+.glyphicon
+{
+    font-size: 12px;
+}
+
+.form-control {
+  width: 25%;
+}
+
+label{
+  width: 10em;
+  text-align: right;
+  margin-right: 0.5em;
+}
+
+body {
+    padding-bottom: 50px;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}

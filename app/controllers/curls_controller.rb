@@ -17,7 +17,15 @@ class CurlsController < ApplicationController
   end
 
   def show
-    @curl = Curl.new
+    @curl = Curl.find(params[:id])
+  end
+
+  def edit
+    respond_to do |format|
+      format.html { redirect_to curl_path }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+   end
   end
 
 private

@@ -1,8 +1,8 @@
 <%= form_for(@curl) do |f| %>
   <% if @curl.errors.any? %>
-    <ul class="error_list">
+    <ul class="alert">
       <% @curl.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li>&middot; <%= msg %></li>
       <% end %>
     </ul>
   <% end %>
@@ -29,12 +29,12 @@
   <br>
   <div class="field">
    <%= f.label :url %><br>
-   <%= f.text_field :url %>
+   <%= f.text_field :url, size: "100x20" %>
   </div>
   <br>
   <div class="field">
    <%= f.label :data %><br>
-   <%= f.text_area :data %>
+   <%= f.text_area :data, size: "100x20" %>
   </div>
   <br>
 

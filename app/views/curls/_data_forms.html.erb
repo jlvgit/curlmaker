@@ -1,0 +1,25 @@
+<% begin %>
+
+  <% data = JSON.parse(@curl.data) %>
+
+  <%= form_tag("#", method: "get") do %>
+    <input type="submit" value="Update" class="hidden"></br>
+
+    <%= render 'url_forms' %>
+
+    <% data = get_all_keys(data) %>
+
+    <% data.each do |k| %>
+      <% if k == "roles" %>
+        <%= label_tag(k, "#{k}:") %> </br>
+        <%= render 'roles_form' %>
+      <% else %>
+        <%= label_tag(k, "#{k}:") %>
+        <%= text_field_tag(k, params[k]) %></br>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+
+<% end %>

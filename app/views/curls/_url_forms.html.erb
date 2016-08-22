@@ -1,0 +1,8 @@
+<% keys = get_url_from_keys(@curl.url) %>
+<% keys.each do |key| %>
+  <% key.gsub!("<", "").gsub!(">", "") %>
+    <%= label_tag(key, "#{key.capitalize}:") %>
+    <%= text_field_tag(key, params[key]) %>
+<% end %>
+</br>
+<hr>
