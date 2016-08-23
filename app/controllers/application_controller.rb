@@ -7,11 +7,6 @@ private
 
   def curl
     @curls = Curl.all
-    @services = {
-      :Otto    => ["Accounts", "Authentication", "Users", "Groups"],
-      :Sawdust => ["Accounts", "Attributes", "Contexts", "Documents",
-                              "Legal Hold", "Search"],
-      :Filbert => ["Jobs"]
-    }
+    @services = @curls.map(&:service).compact.uniq
   end
 end

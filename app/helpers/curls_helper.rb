@@ -5,8 +5,8 @@ module CurlsHelper
       hash = JSON.parse(obj.data)
 
       params.each_pair do |key,val|
-        unless val == "" || val.nil?
-          obj.url = insert_text_into_url(obj.url, key.to_s, val)
+        if val != ""
+          obj.url = insert_text_into_url(obj.url, key.to_s, val) unless val.is_a? Array
           update_hash(hash, key, val)
         end
       end
@@ -17,8 +17,8 @@ curl -X#{obj.method} \\
 #{obj.url} \\
 -d \\
 '#{JSON.pretty_generate(hash)}'"
-    rescue
-      ""
+    # rescue
+    #   ""
     end
   end
 

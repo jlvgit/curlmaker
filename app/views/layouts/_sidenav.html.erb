@@ -43,10 +43,10 @@
     <div class="side-menu-container">
         <ul class="nav navbar-nav">
 
-          <% @services.each_pair do |service, subsections| %>
+          <% @services.each do |service| %>
               <li class="panel panel-default" id="dropdown">
                 <a data-toggle="collapse" href="#<%= service %>-dropdown">
-                  <%= service %>
+                  <%= service.capitalize %>
                 <span class="caret"></span></a>
 
                 <!-- Dropdown level 1 -->
