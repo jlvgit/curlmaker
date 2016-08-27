@@ -9,7 +9,7 @@ class Curl < ApplicationRecord
     "required": ["country"]
   }
 
-  validates :name, :method, :headers, :url, :service,
+  validates :name, :method, :headers, :url, :service, :data,
             presence: { :message => "cannot be blank" }
-  validates :data, presence: true, json: { message: "field is not valid json", schema: PROFILE_JSON_SCHEMA }
+  validates :data, json: { message: "is not a valid json object", schema: PROFILE_JSON_SCHEMA }
 end

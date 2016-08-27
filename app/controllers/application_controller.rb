@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 private
 
   def curl
-    @curls = Curl.all
-    @services = @curls.map(&:service).compact.uniq
+    @curls   = Curl.all
+    @sidenav = @curls.map(&:service).compact.uniq.sort
   end
 end

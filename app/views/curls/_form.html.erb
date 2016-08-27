@@ -7,9 +7,12 @@
     </ul>
   <% end %>
 
+  <%= params.inspect %>
   <div class="field">
    <%= f.label :service %><br>
-   <%= f.text_field :service %>
+   <%= f.text_field :service, name: "service[service]"%>
+   <%= f.label :subsection %><br>
+   <%= f.text_field :service, name: "service[subsection]" %>
   </div>
   <br>
   <div class="field">

@@ -45,4 +45,27 @@ curl -X#{obj.method} \\
   def get_url_from_keys(url)
     url.scan(/<\w+>/)
   end
+
+  def create_sidenav_sections(map)
+    new_map         = Array.new
+    services        = Array.new
+    subsection_hash = Hash.new
+
+    map.each do |hash_string|
+      hash = JSON.parse(hash_string.gsub('=>', ':'))
+      services << hash['service']
+      new_map << hash
+    end
+
+    services.each do |service_name|
+      subsection_hash[service_name] = []
+      new_map.each do |section|
+        if section['service'] == service_name
+          subsection_hash[service_name] << section['subsection']
+        end
+      end
+    end
+
+    subsection_hash
+  end
 end

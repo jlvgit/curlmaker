@@ -39,46 +39,54 @@
           </div> -->
     </div>
 
+    <% @sidenav = create_sidenav_sections(@sidenav) %>
+
     <!-- Main Menu -->
     <div class="side-menu-container">
-        <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav">
+        <% @sidenav.each_pair do |service, subsection| %>
+          <li class="panel panel-default" id="dropdown">
+            <a data-toggle="collapse" href="#<%= service %>-dropdown">
+              <%= service %>
+            <span class="caret"></span></a>
 
-          <% @services.each do |service| %>
-              <li class="panel panel-default" id="dropdown">
-                <a data-toggle="collapse" href="#<%= service %>-dropdown">
-                  <%= service.capitalize %>
-                <span class="caret"></span></a>
+            <!-- Dropdown level 1 -->
+            <div id="<%= service %>-dropdown" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul class="nav navbar-nav">
 
-                <!-- Dropdown level 1 -->
-                <div id="<%= service %>-dropdown" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    <ul class="nav navbar-nav">
 
-                      <!-- Dropdown level 2 -->
-                      <% subsections.each do |section| %>
-                        <li class="panel panel-default" id="dropdown">
-                          <a data-toggle="collapse" href="#<%= section %>dropdown">
-                             <%= section %>
-                           <span class="caret"></span>
-                          </a>
+                    <!-- Dropdown level 2 -->
 
-                          <div id="<%= section %>dropdown" class="panel-collapse collapse">
-                            <div class="panel-body">
-                              <ul class="nav navbar-nav">
-                                <% @curls.each  do |curl| %>
-                                  <li><%= link_to curl.name, curl%></li>
+                    <% subsection.each do |section| %>
+                      <li class="panel panel-default" id="dropdown">
+                        <a data-toggle="collapse" href="#<%= section %>dropdown">
+                           <%= section %>
+                         <span class="caret"></span>
+                        </a>
+
+                        <div id="<%= section %>dropdown" class="panel-collapse collapse">
+                          <div class="panel-body">
+                            <ul class="nav navbar-nav">
+                              <% @curls.each  do |curl| %>
+                                <% grouping = JSON.parse(curl.service.gsub('=>', ':')) %>
+                                <% if grouping['service']    == service  &&
+                                      grouping['subsection'] == section %>
+                                    <li><%= link_to curl.name, curl%></li>
                                 <% end %>
-                              </ul>
-                            </div>
+                              <% end %>
+                            </ul>
                           </div>
-                        </li>
-                      <% end %>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-          <% end %>
-        </ul>
+                        </div>
+                      </li>
+                    <% end %>
+
+                </ul>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </nav>
 </div>
