@@ -68,4 +68,15 @@ curl -X#{obj.method} \\
 
     subsection_hash
   end
+
+end
+
+class String
+  def is_json?
+    begin
+      !!JSON.parse(self)
+    rescue
+      false
+    end
+  end
 end

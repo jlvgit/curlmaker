@@ -1,0 +1,28 @@
+<% @list = create_sidenav_sections(@sidenav) %>
+<h3>List of all curls</h3>
+
+<dl>
+  <% @list.each_pair do |service, subsection| %>
+    <dt><%= service %></dt>
+    <% subsection.each do |section| %>
+      <dd>&emsp;- <%= section %></dd>
+        <table style="margin-left:30px;">
+        <% @curls.each  do |curl| %>
+          <% grouping = JSON.parse(curl.service.gsub('=>', ':')) %>
+          <% if grouping['service']    == service  &&
+                grouping['subsection'] == section %>
+                <td style="padding-right: 10px"><%= curl.name %></td>
+                <td>
+                  <div class="btn-toolbar">
+                      <%= link_to 'Show', curl, class:"btn btn-primary btn-xs"  %>
+                      <%= link_to 'Edit', edit_curl_path(curl), class:"btn btn-primary btn-xs" %>
+                      <%= link_to 'Delete', curl, class:"btn btn-primary btn-xs",
+                                   method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
+                </td>
+          <% end %>
+        <% end %>
+      </table>
+    <% end %>
+  <% end %>
+</dl>

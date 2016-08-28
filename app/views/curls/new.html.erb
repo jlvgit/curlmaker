@@ -1,9 +1,4 @@
-<div class="container-fluid">
-    <div class="side-body">
-      <% provide(:title, 'New') %>
-      <h1>Add curl </h1>
-      <% if notice %> <div class="alert alert-info"><%= notice %></div> <% end %>
-      <% if alert %>  <div class="alert alert-warning"><%= alert %></div> <% end %>
-      <%= render 'form' %>
-    </div>
-</div>
+
+<% provide(:title, 'New') %>
+<h1>Create a new curl </h1>
+<%= render 'form' %>

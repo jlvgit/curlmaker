@@ -1,6 +1,9 @@
 class CurlsController < ApplicationController
 
-  def index
+  def list
+  end
+
+  def home
   end
 
   def new
@@ -10,7 +13,8 @@ class CurlsController < ApplicationController
   def create
     @curl = Curl.new(curl_params)
     if @curl.save
-      redirect_to curls_path
+      flash[:success] = "New curl created successfully!"
+      redirect_to root_path
     else
       render :new
     end
@@ -21,11 +25,20 @@ class CurlsController < ApplicationController
   end
 
   def edit
-    respond_to do |format|
-      format.html { redirect_to curl_path }
-      format.json { head :no_content }
-      format.js   { render :layout => false }
-   end
+    @curl = Curl.find(params[:id])
+  end
+
+  def update
+    if @curl.update(curl_params)
+      redirect_to curl_path
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @curl.destroy
+    redirect_to curls_path
   end
 
 private

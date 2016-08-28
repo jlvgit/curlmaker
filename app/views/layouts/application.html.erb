@@ -13,6 +13,16 @@
 
   <body>
     <%= render 'layouts/sidenav' %>
-    <%= yield %>
+
+    <div class="container-fluid">
+      <div class="side-body">
+        <% flash.each do |message_type, message| %>
+            <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </div>
+
   </body>
 </html>
