@@ -10,19 +10,18 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
+  <%= render 'layouts/sidenav' %>
 
-  <body>
-    <%= render 'layouts/sidenav' %>
+  <div class="container-fluid">
+    <div class="side-body">
+      <body>
 
-    <div class="container-fluid">
-      <div class="side-body">
         <% flash.each do |message_type, message| %>
             <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
         <% end %>
 
         <%= yield %>
-      </div>
+      </body>
     </div>
-
-  </body>
+  </div>
 </html>

@@ -7,6 +7,7 @@ module CurlsHelper
       params.each_pair do |key,val|
         if val != ""
           obj.url = insert_text_into_url(obj.url, key.to_s, val) unless val.is_a? Array
+          val = convert_domains(val) if key == "domains"
           update_hash(hash, key, val)
         end
       end
@@ -17,8 +18,8 @@ curl -X#{obj.method} \\
 #{obj.url} \\
 -d \\
 '#{JSON.pretty_generate(hash)}'"
-    # rescue
-    #   ""
+    rescue
+      "Oops. Something went wrong. The curl text had an issue, check it thoroughly for errors."
     end
   end
 
@@ -44,6 +45,13 @@ curl -X#{obj.method} \\
 
   def get_url_from_keys(url)
     url.scan(/<\w+>/)
+  end
+
+  def convert_domains(array)
+    new_array = Array.new
+    array = array.reject(&:empty?)
+    array.each { |domain| new_array.push({"name" => domain})}
+    new_array
   end
 
   def create_sidenav_sections(map)
