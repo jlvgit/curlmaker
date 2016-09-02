@@ -2,22 +2,25 @@ module CurlsHelper
 
   def create_curl_text(obj, params)
     begin
-      hash = JSON.parse(obj.data)
+      hash = JSON.parse(obj.data) unless (obj.data.nil? || obj.data.empty?)
 
       params.each_pair do |key,val|
         if val != ""
           obj.url = insert_text_into_url(obj.url, key.to_s, val) unless val.is_a? Array
           val = convert_domains(val) if key == "domains"
-          update_hash(hash, key, val)
+          update_hash(hash, key, val) if hash
         end
       end
 
     curl = "
 curl -X#{obj.method} \\
 #{obj.headers} \\
-#{obj.url} \\
--d \\
-'#{JSON.pretty_generate(hash)}'"
+#{obj.url}"
+
+    curl << " \\
+-d \\ '#{JSON.pretty_generate(hash)}'" if hash
+
+    curl
     rescue
       "Oops. Something went wrong. The curl text had an issue, check it thoroughly for errors."
     end
@@ -77,14 +80,12 @@ curl -X#{obj.method} \\
     subsection_hash
   end
 
-end
-
-class String
-  def is_json?
-    begin
-      !!JSON.parse(self)
-    rescue
-      false
-    end
+  def role_in_params?(role)
+    params[:roles].include?(role) rescue false
   end
+
+  def domain_param(index)
+    params[:domains][index] rescue nil
+  end
+
 end

@@ -1,12 +1,17 @@
 <%= label_tag("roles[]", "archiveAdministrator") %>
-<%= check_box_tag("roles[]", :archiveAdministrator) %>
+<%= check_box_tag("roles[]", "archiveAdministrator", role_in_params?("archiveAdministrator")) %>
+
 <%= label_tag("roles[]", "searchAdministrator") %>
-<%= check_box_tag("roles[]", :searchAdministrator) %>
+<%= check_box_tag("roles[]", "searchAdministrator", role_in_params?("searchAdministrator")) %>
+
 <%= label_tag("roles[]", "complianceOfficer") %>
-<%= check_box_tag("roles[]", "complianceOfficer") %>
+<%= check_box_tag("roles[]", "complianceOfficer", role_in_params?("complianceOfficer")) %>
+
 <%= label_tag("roles[]", "reviewer") %>
-<%= check_box_tag("roles[]", "reviewer") %>
+<%= check_box_tag("roles[]", "reviewer", role_in_params?("reviewer")) %>
+
 <%= label_tag("roles[]", "exporter") %>
-<%= check_box_tag("roles[]", "exporter") %>
+<%= check_box_tag("roles[]", "exporter", role_in_params?("exporter")) %>
+
 <%= label_tag("roles[]", "endUser") %>
-<%= check_box_tag("roles[]", "endUser") %>
+<%= check_box_tag("roles[]", "endUser", role_in_params?("endUser")) %>

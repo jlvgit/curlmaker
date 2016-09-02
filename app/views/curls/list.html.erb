@@ -8,6 +8,7 @@
       <dd>&emsp;- <%= section %></dd>
         <table style="margin-left:30px;">
         <% @curls.each  do |curl| %>
+          <tr style="border-bottom: 5px solid transparent;">
           <% grouping = JSON.parse(curl.service.gsub('=>', ':')) %>
           <% if grouping['service']    == service  &&
                 grouping['subsection'] == section %>
@@ -23,6 +24,7 @@
                   </div>
                 </td>
           <% end %>
+          </tr>
         <% end %>
       </table>
     <% end %>

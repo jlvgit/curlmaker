@@ -1,27 +1,27 @@
 <% begin %>
 
-  <% data = JSON.parse(@curl.data) %>
-
   <%= form_tag("#", method: "get") do %>
     <input type="submit" value="Update" class="hidden"></br>
 
     <%= render 'url_forms' %>
 
-    <% data = get_all_keys(data).uniq %>
+    <% unless @curl.data.nil? || @curl.data.empty? %>
+      <% data = JSON.parse(@curl.data) %>
+      <% data = get_all_keys(data).uniq %>
 
-    <% data.each do |k| %>
-      <% if k == "roles" %>
-        <%= label_tag(k, "#{k}:") %> </br>
-        <%= render 'roles_form' %>
-      <% elsif k == "domains" %>
-        <%= label_tag(k, "#{k}:") %> </br>
-        <%= render 'domains_form' %>
-      <% else %>
-        <%= label_tag(k, "#{k}:") %>
-        <%= text_field_tag(k, params[k]) %></br>
+      <% data.each do |k| %>
+        <% if k == "roles" %>
+          <%= label_tag(k, "#{k}:") %> </br>
+          <%= render 'roles_form' %>
+        <% elsif k == "domains" %>
+          <%= label_tag(k, "#{k}:") %> </br>
+          <%= render 'domains_form' %>
+        <% else %>
+          <%= label_tag(k, "#{k}:") %>
+          <%= text_field_tag(k, params[k]) %></br>
+        <% end %>
       <% end %>
     <% end %>
-
   <% end %>
 
 
