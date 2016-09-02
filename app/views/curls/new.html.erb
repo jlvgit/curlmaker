@@ -1,4 +1,7 @@
 
-<% provide(:title, 'New') %>
-<h1>Create a new curl </h1>
-<%= render 'form' %>
+<% if current_user.admin %>
+  <h1>Create a new curl </h1>
+  <%= render 'form' %>
+<% else %>
+  <p>Sorry, you must have admin rights to view this page</p>
+<% end %>

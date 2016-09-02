@@ -1,6 +1,8 @@
 
-<h1>Editing Curl</h1>
-
-<%= render 'form' %>
-
-<%= link_to "Back", curl_path, class:"btn btn-primary btn-xs" %>
+<% if current_user.admin %>
+  <h1>Editing Curl</h1>
+  <%= render 'form' %>
+<% else %>
+  <p>Sorry, you must have admin rights to view this page</p>
+  <%= link_to "Back", curl_path, class:"btn btn-primary btn-xs" %>
+<% end %>

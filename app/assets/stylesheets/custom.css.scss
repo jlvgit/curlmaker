@@ -126,7 +126,7 @@ ul li {
   border-bottom: 1px solid #e7e7e7;
 }
 .side-menu #search-trigger {
-  background-color: #f3f3f3;
+  background-color: #f8f8f8;
   border: 0;
   border-radius: 0;
   position: absolute;
@@ -410,4 +410,27 @@ input[type=text]:focus, textarea:focus {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   margin: 5px 1px 3px 0px;
   border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.alert-notice {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-notice hr {
+  border-top-color: #a6e1ec;
+}
+.alert-notice .alert-link {
+  color: #245269;
+}
+.alert-alert {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert-alert hr {
+  border-top-color: #e4b9c0;
+}
+.alert-alert .alert-link {
+  color: #843534;
 }

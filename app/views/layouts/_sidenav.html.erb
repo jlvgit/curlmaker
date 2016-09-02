@@ -18,7 +18,14 @@
             <!-- Brand -->
             <div class="brand-name-wrapper">
               <%= link_to "Home", root_path, :class => 'navbar-brand'%>
+
+              <% if current_user.admin %>
+                <%= link_to new_curl_path, class: "btn btn-default", id: "search-trigger" do %>
+                  <span class="glyphicon glyphicon-plus" style="color:#A9A9A9"></span>
+                <% end %>
+              <% end %>
             </div>
+
         </div>
 
         <!-- Search -->
@@ -40,7 +47,7 @@
     </div>
 
     <% @sidenav = create_sidenav_sections(@sidenav) %>
-
+    <% if current_user %>
     <!-- Main Menu -->
     <div class="side-menu-container">
       <ul class="nav navbar-nav">
@@ -88,5 +95,6 @@
         <% end %>
       </ul>
     </div>
+    <% end %>
   </nav>
 </div>

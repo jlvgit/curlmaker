@@ -14,10 +14,12 @@
                 <td style="padding-right: 10px"><%= curl.name %></td>
                 <td>
                   <div class="btn-toolbar">
-                      <%= link_to 'Show', curl, class:"btn btn-primary btn-xs"  %>
+                      <%= link_to 'Open', curl, class:"btn btn-primary btn-xs"  %>
+                      <% if current_user.admin %>
                       <%= link_to 'Edit', edit_curl_path(curl), class:"btn btn-primary btn-xs" %>
                       <%= link_to 'Delete', curl, class:"btn btn-primary btn-xs",
                                    method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% end %>
                   </div>
                 </td>
           <% end %>

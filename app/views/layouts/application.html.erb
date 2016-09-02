@@ -15,7 +15,9 @@
   <div class="container-fluid">
     <div class="side-body">
       <body>
-
+        <% if user_signed_in? %>
+         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'pull-right'  %>
+        <% end %>
         <% flash.each do |message_type, message| %>
             <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
         <% end %>
