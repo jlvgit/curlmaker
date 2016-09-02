@@ -19,9 +19,11 @@
             <div class="brand-name-wrapper">
               <%= link_to "Home", root_path, :class => 'navbar-brand'%>
 
-              <% if current_user.admin %>
-                <%= link_to new_curl_path, class: "btn btn-default", id: "search-trigger" do %>
-                  <span class="glyphicon glyphicon-plus" style="color:#A9A9A9"></span>
+              <% if user_signed_in? %>
+                <% if current_user.admin %>
+                  <%= link_to new_curl_path, class: "btn btn-default", id: "search-trigger" do %>
+                    <span class="glyphicon glyphicon-plus" style="color:#A9A9A9"></span>
+                  <% end %>
                 <% end %>
               <% end %>
             </div>
