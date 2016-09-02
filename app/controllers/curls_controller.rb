@@ -30,6 +30,7 @@ class CurlsController < ApplicationController
   end
 
   def update
+    @curl = Curl.find(params[:id])
     if @curl.update(curl_params)
       redirect_to curl_path
     else

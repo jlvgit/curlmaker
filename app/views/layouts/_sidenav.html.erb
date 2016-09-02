@@ -69,12 +69,12 @@
 
                     <% subsection.each do |section| %>
                       <li class="panel panel-default" id="dropdown">
-                        <a data-toggle="collapse" href="#<%= section %>dropdown">
+                        <a data-toggle="collapse" href="#<%= service %>-<%= section %>-dropdown">
                            <%= section %>
                          <span class="caret"></span>
                         </a>
 
-                        <div id="<%= section %>dropdown" class="panel-collapse collapse">
+                        <div id="<%= service %>-<%= section %>-dropdown" class="panel-collapse collapse">
                           <div class="panel-body">
                             <ul class="nav navbar-nav">
                               <% @curls.each  do |curl| %>

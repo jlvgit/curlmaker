@@ -2,7 +2,6 @@ class Curl < ApplicationRecord
   serialize :data, JSON
   validates :name, :method, :headers, :url, :service, :data,
             presence: { :message => "cannot be blank" }
-  validates :name, uniqueness: { case_sensitive: false }
 
   validate :json_format
 
