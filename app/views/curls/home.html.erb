@@ -1,9 +1,10 @@
 
-<% if user_signed_in? %>
- Hi, <strong><%= current_user.email %></strong>.
-<% end %>
-
 <h1>Sonian Curls</h1></br>
+
+<% if user_signed_in? %>
+  Hi, <strong><%= current_user.name.split(' ')[0] %></strong>.
+<% end %>
+</br></br>
 <h5>Instructions/Notes:</h5></br>
 <p>&middot; Use the navigation on the left side to choose an action.</p>
 <p>&middot; On the curl screen simply fill in the forms and press enter. The curl
