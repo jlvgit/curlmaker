@@ -18,7 +18,8 @@ curl -X#{obj.method} \\
 #{obj.url}"
 
     curl << " \\
--d \\ '#{JSON.pretty_generate(hash)}'" if hash
+-d \\
+'#{JSON.pretty_generate(hash)}'" if hash
 
     curl
     rescue
