@@ -1,5 +1,5 @@
 <% @list = create_sidenav_sections(@sidenav) %>
-<h3>List of all curls</h3>
+<h1>Sonian Curls</h1>
 
 <dl>
   <% @list.each_pair do |service, subsection| %>
@@ -12,10 +12,10 @@
           <% grouping = JSON.parse(curl.service.gsub('=>', ':')) %>
           <% if grouping['service']    == service  &&
                 grouping['subsection'] == section %>
-                <td style="padding-right: 10px"><%= curl.name %></td>
+                <td style="padding-right: 10px">
+                  <%= link_to curl.name, curl %></td>
                 <td>
                   <div class="btn-toolbar">
-                      <%= link_to 'Open', curl, class:"btn btn-primary btn-xs"  %>
                       <% if current_user.admin %>
                       <%= link_to 'Edit', edit_curl_path(curl), class:"btn btn-primary btn-xs" %>
                       <%= link_to 'Delete', curl, class:"btn btn-primary btn-xs",

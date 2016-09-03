@@ -132,7 +132,7 @@ ul li {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 15px 18px;
+  padding: 18px 10px;
 }
 .side-menu .brand-name-wrapper {
   min-height: 50px;
@@ -441,4 +441,12 @@ pre {
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.new-curl {
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 33;
+  padding: 18px 10px;
 }

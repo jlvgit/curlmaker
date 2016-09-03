@@ -21,9 +21,13 @@
                 <%= link_to "Home", root_path, :class => 'navbar-brand'%>
 
                 <% if current_user.admin %>
-                  <%= link_to new_curl_path, class: "btn btn-default", id: "search-trigger" do %>
+                  <%= link_to new_curl_path, :class => "new-curl" do %>
                     <span class="glyphicon glyphicon-plus" style="color:#A9A9A9"></span>
                   <% end %>
+                <% end %>
+
+                <%= link_to list_path, class: "btn btn-default", id: "search-trigger" do %>
+                  <span class="glyphicon glyphicon-list" style="color:#A9A9A9"></span>
                 <% end %>
 
                 <% else %>
