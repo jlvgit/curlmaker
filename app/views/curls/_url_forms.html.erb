@@ -1,8 +1,8 @@
-<% keys = get_url_from_keys(@curl.url) %>
+<% keys = get_keys_from_url(@curl.url) %>
 <% keys.each do |key| %>
   <% key.gsub!("<", "").gsub!(">", "") %>
     <%= label_tag(key, "#{key.capitalize}:") %>
-    <%= text_field_tag(key, params[key]) %>
+    <%= text_field_tag(key, load_key_from_session(key)) %>
 <% end %>
 </br>
 <hr>

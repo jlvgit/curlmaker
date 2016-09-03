@@ -22,7 +22,7 @@ curl -X#{obj.method} \\
 
     curl
     rescue
-      "Oops. Something went wrong. The curl text had an issue, check it thoroughly for errors."
+      "Oops. Something went wrong. The curl text probably has an issue, contact an admin."
     end
   end
 
@@ -46,7 +46,7 @@ curl -X#{obj.method} \\
     end.flatten
   end
 
-  def get_url_from_keys(url)
+  def get_keys_from_url(url)
     url.scan(/<\w+>/)
   end
 
@@ -86,6 +86,11 @@ curl -X#{obj.method} \\
 
   def domain_param(index)
     params[:domains][index] rescue nil
+  end
+
+  def load_key_from_session(key)
+    session[key] = params[key] if params[key]
+    session[key]
   end
 
 end
