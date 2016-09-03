@@ -1,15 +1,5 @@
 module ApplicationHelper
 
-  class String
-    def is_json?
-      begin
-        !!JSON.parse(self)
-      rescue
-        false
-      end
-    end
-  end
-
   def all_messages
 
   # Standard flash messages
@@ -26,6 +16,16 @@ module ApplicationHelper
   end
 
   return messages
+  end
 
+end
+
+class String
+  def is_json?
+    begin
+      !!JSON.parse(self)
+    rescue
+      false
+    end
   end
 end
