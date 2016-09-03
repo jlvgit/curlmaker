@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # added by me
 gem 'omniauth-google-oauth2'
 gem 'devise'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
 
 gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
