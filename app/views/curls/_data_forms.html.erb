@@ -1,6 +1,6 @@
 <% begin %>
 
-  <%= form_tag("#", method: "get") do %>
+  <%= form_tag("/curls/#{@curl.id}", method: "get", remote:true) do %>
     <input type="submit" value="Update" class="hidden"></br>
 
     <%= render 'url_forms' %>
