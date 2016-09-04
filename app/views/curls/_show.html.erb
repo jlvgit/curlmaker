@@ -1,0 +1,28 @@
+
+<% title = JSON.parse(@curl.service.gsub('=>', ':')) %>
+
+<script>
+$(function() {
+    $('input[name=post-format]').on('click init-post-format', function() {
+        $('#gallery-box').toggle($('#post-format-gallery').prop('checked'));
+    }).trigger('init-post-format');
+});
+</script>
+
+<h3><%= title['service'] + " - " + @curl.name %></h3>
+
+<hr>
+
+<div class="row">
+
+  <div class="col-xs-4">
+    <%= render 'data_forms' %>
+  </div>
+
+  <div class="col-xs-8">
+    <pre contenteditable="true"><%=
+    create_curl_text(@curl, params) %> <span id="gallery-box">| python -m json.tool</span></pre>
+    <label>Pretty output? <input type="checkbox" name="post-format" id="post-format-gallery"></label>
+  </div>
+
+</div>

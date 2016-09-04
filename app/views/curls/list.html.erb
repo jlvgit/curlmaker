@@ -13,7 +13,7 @@
           <% if grouping['service']    == service  &&
                 grouping['subsection'] == section %>
                 <td style="padding-right: 10px">
-                  <%= link_to curl.name, curl %></td>
+                  <%= link_to curl.name, curl, remote: true %></td>
                 <td>
                   <div class="btn-toolbar">
                       <% if current_user.admin %>

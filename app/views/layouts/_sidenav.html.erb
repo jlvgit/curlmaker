@@ -88,7 +88,7 @@
                                 <% grouping = JSON.parse(curl.service.gsub('=>', ':')) %>
                                 <% if grouping['service']    == service  &&
                                       grouping['subsection'] == section %>
-                                    <li><%= link_to curl.name, curl%></li>
+                                    <li><%= link_to curl.name, curl, remote: true%></li>
                                 <% end %>
                               <% end %>
                             </ul>
