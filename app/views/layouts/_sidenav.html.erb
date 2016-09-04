@@ -84,7 +84,7 @@
                         <div id="<%= service %>-<%= section %>-dropdown" class="panel-collapse collapse">
                           <div class="panel-body">
                             <ul class="nav navbar-nav">
-                              <% @curls.each  do |curl| %>
+                              <% @curls.order("LOWER(name)").each  do |curl| %>
                                 <% grouping = JSON.parse(curl.service.gsub('=>', ':')) %>
                                 <% if grouping['service']    == service  &&
                                       grouping['subsection'] == section %>
