@@ -1,5 +1,5 @@
 
-<% forms_to_make = 5 %>
+<% forms_to_make = 3 %>
 <% for i in 0..forms_to_make %>
   <%= label_tag("domains[]", "domain#{i+1}:") %>
   <%= text_field_tag("domains[]", domain_param(i),:onclick => 'this.select();') %>
