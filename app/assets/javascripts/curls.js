@@ -1,3 +1,4 @@
+/// js for the side nav
 $(function () {
     $('.navbar-toggle').click(function () {
         $('.navbar-nav').toggleClass('slide-in');
@@ -20,6 +21,8 @@ $(function () {
     });
 });
 
+
+/// js for the prettify text
 $(function()
 {
     $(document).on('click', '.btn-add', function(e)

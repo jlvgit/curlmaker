@@ -1,17 +1,6 @@
-<%= label_tag("domains[]", "") %>
-<%= text_field_tag("domains[]", domain_param(0)) %>
 
-<%= label_tag("domains[]", "") %>
-<%= text_field_tag("domains[]", domain_param(1)) %>
-
-<%= label_tag("domains[]", "") %>
-<%= text_field_tag("domains[]", domain_param(2)) %>
-
-<%= label_tag("domains[]", "") %>
-<%= text_field_tag("domains[]", domain_param(3)) %>
-
-<%= label_tag("domains[]", "") %>
-<%= text_field_tag("domains[]", domain_param(4)) %>
-
-<%= label_tag("domains[]", "") %>
-<%= text_field_tag("domains[]", domain_param(5)) %>
+<% forms_to_make = 5 %>
+<% for i in 0..forms_to_make %>
+  <%= label_tag("domains[]", "domain#{i+1}:") %>
+  <%= text_field_tag("domains[]", domain_param(i),:onclick => 'this.select();') %>
+<% end %>

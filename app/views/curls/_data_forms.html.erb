@@ -14,11 +14,10 @@
           <%= label_tag(k, "#{k}:") %> </br>
           <%= render 'roles_form' %>
         <% elsif k == "domains" %>
-          <%= label_tag(k, "#{k}:") %> </br>
           <%= render 'domains_form' %>
         <% else %>
           <%= label_tag(k, "#{k}:") %>
-          <%= text_field_tag(k, params[k]) %></br>
+          <%= text_field_tag(k, params[k], :onclick => 'this.select();') %></br>
         <% end %>
       <% end %>
     <% end %>

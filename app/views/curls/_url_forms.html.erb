@@ -2,7 +2,7 @@
 <% keys.each do |key| %>
   <% key.gsub!("<", "").gsub!(">", "") %>
     <%= label_tag(key, "#{key.capitalize}:") %>
-    <%= text_field_tag(key, load_key_from_session(key)) %>
+    <%= text_field_tag(key, load_key_from_session(key), :onclick => 'this.select();') %>
 <% end %>
 </br>
 <hr>
