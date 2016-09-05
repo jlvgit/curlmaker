@@ -14,7 +14,7 @@ class CurlsController < ApplicationController
   def create
     @curl = Curl.new(curl_params)
     if @curl.save
-      flash[:success] = "New curl created successfully!"
+      flash[:success] = "New entry created successfully!"
       redirect_to root_path
     else
       render :new
@@ -32,7 +32,7 @@ class CurlsController < ApplicationController
   def update
     @curl = Curl.find(params[:id])
     if @curl.update(curl_params)
-      flash[:success] = "Updated successfully!"
+      flash[:success] = "Update successful!"
       redirect_to root_path
     else
       render :new
