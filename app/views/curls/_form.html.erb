@@ -15,7 +15,7 @@
   <div class="field">
    <%= f.label :service %> <br>
    <%= f.text_field :service, size: "50x20",
-      :value => "{\"service\"=>\"\", \"subsection\"=>\"\"}" %>
+      :value => (f.object.service || "{\"service\"=>\"\", \"subsection\"=>\"\"}") %>
   <br><br>
   <div class="field">
    <%= f.label :name %><br>

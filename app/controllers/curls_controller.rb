@@ -32,7 +32,8 @@ class CurlsController < ApplicationController
   def update
     @curl = Curl.find(params[:id])
     if @curl.update(curl_params)
-      redirect_to curl_path
+      flash[:success] = "Updated successfully!"
+      redirect_to root_path
     else
       render :new
     end
