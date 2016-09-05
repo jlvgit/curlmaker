@@ -7,7 +7,8 @@ module CurlsHelper
       params.each_pair do |key,val|
         if val != ""
           obj.url = insert_text_into_url(obj.url, key.to_s, val) unless val.is_a? Array
-          val = convert_domains(val) if key == "domains"
+          val = val.reject(&:empty?)  if val.is_a? Array
+          val = convert_domains(val)  if key == "domains"
           update_hash(hash, key, val) if hash
         end
       end
@@ -53,7 +54,6 @@ curl -X#{obj.method} \\
 
   def convert_domains(array)
     new_array = Array.new
-    array = array.reject(&:empty?)
     array.each { |domain| new_array.push({"domain-name" => domain})}
     new_array
   end
@@ -85,8 +85,8 @@ curl -X#{obj.method} \\
     params[:roles].include?(role) rescue false
   end
 
-  def domain_param(index)
-    params[:domains][index] rescue nil
+  def array_param(key, index)
+    params[key.to_sym][index] rescue nil
   end
 
   def load_key_from_session(key)

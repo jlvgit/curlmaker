@@ -13,7 +13,8 @@
         <% if k == "roles" %>
           <%= label_tag(k, "#{k}:") %> </br>
           <%= render 'roles_form' %>
-        <% elsif k == "domains" %>
+        <% elsif k == "domains" || k == "attributes" %>
+          <% @array_key = k %>
           <%= render 'domains_form' %>
         <% else %>
           <%= label_tag(k, "#{k}:") %>
