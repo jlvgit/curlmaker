@@ -17,8 +17,8 @@
                 <td>
                   <div class="btn-toolbar">
                       <% if current_user.admin %>
-                      <%= link_to 'Edit', edit_curl_path(curl), class:"btn btn-primary btn-xs" %>
-                      <%= link_to 'Delete', curl, class:"btn btn-primary btn-xs",
+                      <%= link_to 'Edit', edit_curl_path(curl), class:"btn btn-default btn-xs" %>
+                      <%= link_to 'Delete', curl, class:"btn btn-default btn-xs",
                                    method: :delete, data: { confirm: 'Are you sure?' } %>
                       <% end %>
                   </div>
