@@ -2,9 +2,13 @@
 <% roles = ["archiveAdministrator", "searchAdministrator", "complianceOfficer",
             "reviewer", "exporter", "endUser"] %>
 
-<div style="background-color:#e7e7e7; padding:2px;">
-<% roles.each do |role| %>
-  <%= label_tag("roles[]", role) %>
-  <%= check_box_tag("roles[]", role, role_in_params?(role)) %>
-<% end %>
+<div align="right" style="margin-right:35px;">
+  <table class="roles-table">
+    <% roles.each do |role| %>
+    <tr>
+      <td> <%= label_tag("roles[]", role) %> </td>
+      <td> <%= check_box_tag("roles[]", role, role_in_params?(role)) %> </td>
+    </tr>
+    <% end %>
+  </table>
 </div>
