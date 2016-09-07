@@ -2,7 +2,17 @@
 <% keys.each do |key| %>
   <% key.gsub!("<", "").gsub!(">", "") %>
     <%= label_tag(key, "#{key.capitalize}:") %>
-    <%= text_field_tag(key, load_key_from_session(key), :onclick => 'this.select();') %>
+    <% if key == 'stack_domain' %>
+      <%= select_tag key, options_for_select([
+        ['archive.sonianview.com', 'archive.sonianview.com'],
+        ['core-qa.sonianview.com', 'core-qa.sonianview.com'],
+        ['dev.discoverstor.net', 'dev.discoverstor.net'],
+        ['dev-view-us.sonianview.com', 'dev-view-us.sonianview.com'],
+        ['safe-ua.sonianview.com', 'safe-ua.sonianview.com'],
+        ['qa.discoverstor.net', 'qa.discoverstor.net'] ], :selected => load_key_from_session(key)) %>
+    <% else %>
+      <%= text_field_tag(key, load_key_from_session(key), :onclick => 'this.select();') %>
+    <% end %>
 <% end %>
 </br>
 <hr>
