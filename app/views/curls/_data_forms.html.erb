@@ -1,28 +1,24 @@
-<% begin %>
 
-  <%= form_tag("/curls/#{@curl.id}", method: "get", remote:true) do %>
-    <input type="submit" value="Update" class="hidden"></br>
+<%= form_tag("/curls/#{@curl.id}", method: "get", remote:true) do %>
+  <input type="submit" value="Update" class="hidden" id="submit-form"></br>
 
-    <%= render 'url_forms' %>
+  <%= render 'url_forms' %>
 
-    <% unless @curl.data.nil? || @curl.data.empty? %>
-      <% data = JSON.parse(@curl.data) %>
-      <% data = get_all_keys(data).uniq %>
+  <% unless @curl.data.nil? || @curl.data.empty? %>
+    <% data = JSON.parse(@curl.data) %>
+    <% data = get_all_keys(data).uniq %>
 
-      <% data.each do |k| %>
-        <% if k == "roles" %>
-          <%= label_tag(k, "#{k}:") %> </br>
-          <%= render 'roles_form' %>
-        <% elsif k == "domains" || k == "attributes" %>
-          <% @array_key = k %>
-          <%= render 'domains_form' %>
-        <% else %>
-          <%= label_tag(k, "#{k}:") %>
-          <%= text_field_tag(k, params[k], :onclick => 'this.select();') %></br>
-        <% end %>
+    <% data.each do |k| %>
+      <% if k == "roles" %>
+        <%= label_tag(k, "#{k}:") %> </br>
+        <%= render 'roles_form' %>
+      <% elsif k == "domains" || k == "attributes" %>
+        <% @array_key = k %>
+        <%= render 'domains_form' %>
+      <% else %>
+        <%= label_tag(k, "#{k}:") %>
+        <%= text_field_tag(k, params[k], :onclick => 'this.select();') %></br>
       <% end %>
     <% end %>
   <% end %>
-
-
 <% end %>
