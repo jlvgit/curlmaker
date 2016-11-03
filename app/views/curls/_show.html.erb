@@ -28,7 +28,16 @@ $(function() {
     create_curl_text(@curl, params) %> <span id="gallery-box">| python -m json.tool</span></pre>
     <label>Pretty output? <input type="checkbox" name="post-format" id="post-format-gallery"></label>
     <label for="submit-form" class="btn btn-default btn-xs">Submit</label>
-    <input type="button" class="click" value="Select Text"></input>
+    <input type="button" class="click" value="Select Text" id="selectme-btn" style="visibility:hidden;"></input>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $("#selectme-btn").click();
+      });
+
+      $('#post-format-gallery').click(function() {
+          $("#selectme-btn").click();
+      });
+    </script>
 
   </div>
 
