@@ -1,3 +1,18 @@
 $('#result').val("Success!");
 <%# /app/views/things/show.js.erb %>
 $("#Content").html("<%= j render(partial: 'show') %>");
+
+// adds pretty format text when box checked
+$(function() {
+    $('input[name=post-format]').on('click init-post-format', function() {
+        $('#gallery-box').toggle($('#post-format-gallery').prop('checked'));
+    }).trigger('init-post-format');
+});
+
+$(document).ready(function(){
+    $("#selectme-btn").click();
+});
+
+$('#post-format-gallery').click(function() {
+    $("#selectme-btn").click();
+});
