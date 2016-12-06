@@ -55,6 +55,7 @@ curl -X#{obj.method} \\
   def convert_domains(array)
     new_array = Array.new
     array.each { |domain| new_array.push({"domain-name" => domain})}
+    new_array = [{"domain-name" => "sonian.net"}] if new_array.empty?
     new_array
   end
 
