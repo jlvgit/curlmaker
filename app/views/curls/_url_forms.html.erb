@@ -4,11 +4,12 @@
     <%= label_tag(key, "#{key.capitalize}:") %>
     <% if key == 'stack_domain' %>
       <%= select_tag key, options_for_select([
-        ['sonianview-archive', 'archive.sonianview.com'],
-        ['sonianview-ua', 'safe-ua.sonianview.com'],
         ['dev-view-us', 'dev-view-us.sonianview.com'],
+        ['nest1-view-eu', 'viewarchive.co.uk'],
+        ['nest1-view-us', 'sonianview.com'],
         ['qa-view-us', 'qa-view-us.sonianview.com'],
-        ['qa1-view-us', 'qa1-view-us.sonianview.com'] ], :selected => load_key_from_session(key)) %>
+        ['qa1-view-us', 'qa1-view-us.sonianview.com'],
+        ['ua-view-us', 'ua-view-us.sonianview.com'] ], :selected => load_key_from_session(key)) %>
     <% else %>
       <%= text_field_tag(key, load_key_from_session(key), :onclick => 'this.select();') %>
     <% end %>
