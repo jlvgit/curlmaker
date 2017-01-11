@@ -3,10 +3,10 @@
 <table>
     <% key.gsub!("<", "").gsub!(">", "") %>
     <tr>
-        <td>
+        <td width="40%">
             <%= label_tag(key, "#{key.capitalize}:") %>
         </td>
-        <td>
+        <td width="60%">
           <% if key == 'stack_domain' %>
             <%= select_tag key, options_for_select([
               ['dev-view-us', 'dev-view-us.sonianview.com'],

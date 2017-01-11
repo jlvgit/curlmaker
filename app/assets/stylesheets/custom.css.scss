@@ -408,13 +408,20 @@ input[type=text], textarea {
   margin: 5px 1px 3px 0px;
   border: 1px solid #DDDDDD;
   font-size: 12px;
-  width: 150px;
+  width: 100%;
+  padding:.2em .3em;
+  display:inline-block;
+  border-radius:4px;
 }
 
 input[type=text]:focus, textarea:focus {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   margin: 5px 1px 3px 0px;
   border: 1px solid rgba(81, 203, 238, 1);
+  font-size: 12px;
+}
+
+select {
   font-size: 12px;
 }
 
@@ -460,4 +467,8 @@ pre {
 
 .roles-table {
   font-size: 90%;
+}
+
+table {
+  width: 100%;
 }
