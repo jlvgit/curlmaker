@@ -391,6 +391,7 @@ label{
   width: 10em;
   text-align: right;
   margin-right: 0.5em;
+  font-size: 12px;
 }
 
 body {
@@ -406,12 +407,15 @@ input[type=text], textarea {
   padding: 0px 0px 0px 3px;
   margin: 5px 1px 3px 0px;
   border: 1px solid #DDDDDD;
+  font-size: 12px;
+  width: 150px;
 }
 
 input[type=text]:focus, textarea:focus {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   margin: 5px 1px 3px 0px;
   border: 1px solid rgba(81, 203, 238, 1);
+  font-size: 12px;
 }
 
 .alert-notice {
@@ -443,6 +447,7 @@ pre {
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    font-size: 12px;
 }
 
 .new-curl {
@@ -455,9 +460,4 @@ pre {
 
 .roles-table {
   font-size: 90%;
-}
-
-label{
-    display:inline-block;
-    width:100px;
 }
