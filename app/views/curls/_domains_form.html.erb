@@ -2,7 +2,11 @@
 <% forms_to_make = 3 %>
 <% for i in 0..forms_to_make %>
   <tr>
-    <td><%= label_tag("#{@array_key}[]", "#{@array_key.singularize}#{i+1}:") %></td>
-    <td><%= text_field_tag("#{@array_key}[]", array_param(@array_key, i),:onclick => 'this.select();') %></td>
+    <td width="40%">
+      <%= label_tag("#{@array_key}[]", "#{@array_key.singularize}#{i+1}:") %>
+    </td>
+    <td width="60%">
+      <%= text_field_tag("#{@array_key}[]", array_param(@array_key, i),:onclick => 'this.select();') %>
+    </td>
   </tr>
 <% end %>

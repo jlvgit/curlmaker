@@ -11,14 +11,14 @@
     <% data.each do |k| %>
       <tr>
       <% if k == "roles" %>
-          <td><%= label_tag(k, "#{k}:") %></td>
-          <td><%= render 'roles_form' %></td>
+          <td width="40%"><%= label_tag(k, "#{k}:") %></td>
+          <td width="60%"><%= render 'roles_form' %></td>
       <% elsif k == "domains" || k == "attributes" %>
           <% @array_key = k %>
           <%= render 'domains_form' %>
       <% else %>
-          <td><%= label_tag(k, "#{k}:") %></td>
-          <td><%= text_field_tag(k, params[k], :onclick => 'this.select();') %></td>
+          <td width="40%"><%= label_tag(k, "#{k}:") %></td>
+          <td width="60%"><%= text_field_tag(k, params[k], :onclick => 'this.select();') %></td>
       <% end %>
       </tr>
     <% end %>
