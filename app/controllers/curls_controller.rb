@@ -23,6 +23,7 @@ class CurlsController < ApplicationController
 
   def show
     @curl = Curl.find(params[:id])
+    render :show
   end
 
   def edit
@@ -33,15 +34,16 @@ class CurlsController < ApplicationController
     @curl = Curl.find(params[:id])
     if @curl.update(curl_params)
       flash[:success] = "Update successful!"
-      redirect_to root_path
+      redirect_to curl_path
     else
       render :new
     end
   end
 
   def destroy
+    @curl = Curl.find(params[:id])
     @curl.destroy
-    redirect_to curls_path
+    redirect_to root_path
   end
 
 private
