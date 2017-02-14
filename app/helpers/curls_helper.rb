@@ -13,16 +13,9 @@ module CurlsHelper
         end
       end
 
-    headers = "#{obj.headers}"
-    if (obj.headers.nil? || obj.headers.empty?)
-      headers = ""
-    else
-      headers << " \\"    unless (obj.headers.nil? || obj.headers.empty?)
-      headers.prepend"\n" unless (obj.headers.nil? || obj.headers.empty?)
-    end
-
     curl = "
-curl -X#{obj.method} \\ #{headers}
+curl -X#{obj.method} \\
+#{obj.headers} \\
 #{obj.url}"
 
     curl << " \\
