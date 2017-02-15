@@ -16,7 +16,8 @@
   </div>
 
   <div class="col-xs-8">
-    <pre contenteditable="true" id="selectme"><%=
+    <pre contenteditable="true" id="selectme" autocomplete="off"
+         autocorrect="off" autocapitalize="off" spellcheck="false"><%=
       create_curl_text(@curl, params) %> <span id="gallery-box">| python -m json.tool</span></pre>
     <label>Pretty output? <input type="checkbox" name="post-format" id="post-format-gallery"></label>
     <label for="submit-form" class="btn btn-default btn-xs">Submit</label>
