@@ -15,9 +15,9 @@ module CurlsHelper
 
     curl = "curl -X#{obj.method} \\"
     curl << "\n#{obj.headers} \\" unless (obj.headers.nil? || obj.headers.empty?)
-    curl << "\n#{obj.url} \\"
+    curl << "\n#{obj.url}"
     if hash
-      curl << "\n-d \\\n'#{JSON.pretty_generate(hash)}'"
+      curl << "\\\n-d \\\n'#{JSON.pretty_generate(hash)}'"
     end
 
     curl
