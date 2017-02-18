@@ -22,7 +22,8 @@ module CurlsHelper
 
     curl
     rescue
-      "Oops. Something went wrong. The curl text probably has an issue, contact an admin."
+      "Oops. Something went wrong. Make sure all your entries are correct.
+      If everything is accurate and you're still having an issue, contact an admin."
     end
   end
 
@@ -31,7 +32,16 @@ module CurlsHelper
       if Hash === v
         update_hash(hash[k], key, val)
       else
-        hash[key] = val if (hash.key?(key) && key != "")
+        if (hash.key?(key) && key != "")
+          if hash[key].class == Integer || hash[key].class == Fixnum
+            hash[key] = val.to_i
+          elsif hash[key] == true || hash[key] == false
+            val.to_s == "true" ? val = true : val = false
+            hash[key] = val
+          else
+            hash[key] = val
+          end
+        end
       end
     end
   end
