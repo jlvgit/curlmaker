@@ -1,10 +1,10 @@
 
 <% title = JSON.parse(@curl.service.gsub('=>', ':')) %>
 
-<h3><%= title['service'] + " - " + @curl.name %> <%=
+<h4><%= title['service'] + " - " + @curl.name %> <%=
         link_to '', edit_curl_path(@curl),
         class:"glyphicon glyphicon-pencil",
-        style:"color:#A9A9A9" if current_user.admin %></h3>
+        style:"color:#A9A9A9" if current_user.admin %></h4>
 
 <hr>
 
