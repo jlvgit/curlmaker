@@ -9,10 +9,17 @@ $(function() {
     }).trigger('init-post-format');
 });
 
-$(document).ready(function(){
-    $("#selectme-btn").click();
-});
+// click select button on page load.
+// $(document).ready(function(){
+//     $("#selectme-btn").click();
+// });
 
 $('#post-format-gallery').click(function() {
     $("#selectme-btn").click();
+});
+
+$('#submit-form').click(function() {
+  setTimeout(function(){
+    $("#selectme-btn").click();
+  }, 100);
 });
