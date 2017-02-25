@@ -54,7 +54,7 @@ ul li {
 .side-menu {
   position: fixed;
   overflow:scroll;
-  width: 300px;
+  width: 250px;
   height: 100%;
   background-color: #f8f8f8;
   border-right: 1px solid #e7e7e7;
@@ -118,7 +118,8 @@ ul li {
   padding-left: 35px;
 }
 .side-menu #dropdown .panel-body .panel-body {
-  margin-left: 0px;
+  margin-left: -10px;
+  padding-left: 10px;
   background-color: #f3f3f3;
 }
 .side-menu #dropdown .panel-body .panel-body li {
@@ -180,7 +181,7 @@ ul li {
 }
 /* Main body section */
 .side-body {
-  margin-left: 310px;
+  margin-left: 250px;
 }
 /* small screen */
 @media (max-width: 768px) {
@@ -390,6 +391,7 @@ ul li {
 
 label{
   width: 10em;
+  white-space:nowrap;
   text-align: right;
   margin-bottom: 0px;
   font-size: 12px;
@@ -404,8 +406,7 @@ input[type=text], textarea {
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
   outline: none;
-  padding: 0px 0px 0px 3px;
-  margin: 5px 1px 3px 0px;
+  margin: 1px 0px 3px 0px;
   border: 1px solid #DDDDDD;
   font-size: 12px;
   width: 100%;
@@ -416,7 +417,7 @@ input[type=text], textarea {
 
 input[type=text]:focus, textarea:focus {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-  margin: 5px 1px 3px 0px;
+  margin: 1px 0px 3px 0px;
   border: 1px solid rgba(81, 203, 238, 1);
   font-size: 12px;
 }
