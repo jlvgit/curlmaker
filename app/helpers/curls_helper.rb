@@ -3,7 +3,7 @@ module CurlsHelper
   def create_curl_text(obj, params)
     begin
       hash = JSON.parse(obj.data) unless (obj.data.nil? || obj.data.empty?)
-
+      puts params.inspect
       params.each_pair do |key,val|
         if val != ""
           obj.url = insert_text_into_url(obj.url, key.to_s, val) unless val.is_a? Array
@@ -101,6 +101,20 @@ module CurlsHelper
   def load_key_from_session(key)
     session[key] = params[key] if params[key]
     session[key]
+  end
+
+  def show_from_session?(key)
+    if !params[key] && params["utf8"] == "✓"
+      session[key] = false
+      false
+    elsif session[key]
+      true
+    elsif !session[key] && params[key]
+      session[key] = true
+      true
+    else
+      false
+    end
   end
 
 end
