@@ -12,14 +12,13 @@
 
   <div class="col-xs-4">
     <%= render 'data_forms' %>
-    <%= link_to "Reset", @curl, remote: true, class:"btn btn-default btn-xs" %>
   </div>
 
   <div class="col-xs-8">
     <pre contenteditable="true" id="selectme" autocomplete="off"
          autocorrect="off" autocapitalize="off" spellcheck="false"><%=create_curl_text(@curl, params) %><span id="gallery-box"> | python -m json.tool</span></pre>
     <label for="submit-form" class="btn btn-default btn-xs" id="curl-submit">Submit</label>
-    <input type="button" class="click" value="Select Text" id="selectme-btn"></input>
+    <input type="button" class="btn btn-default btn-xs" value="Select Text" id="selectme-btn"></input>
   </div>
 
 </div>

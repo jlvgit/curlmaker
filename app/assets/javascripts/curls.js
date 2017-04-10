@@ -68,7 +68,7 @@ function SelectText(element) {
 }
 
 document.onclick = function(e) {
-    if (e.target.className === 'click') {
+    if (e.target.id === 'selectme-btn') {
         SelectText('selectme');
     }
 };

@@ -1,23 +1,6 @@
 
 <%= form_tag("/curls/#{@curl.id}", method: "get", remote:true) do %>
   <input type="submit" value="Update" class="hidden" id="submit-form">
-  <!-- <label>Pretty output? <input type="checkbox" name="post-format" id="post-format-gallery"/></label> -->
-  <!-- <label>Single Line Curl <input type="checkbox" name="single-line" id="single-line" /></label> -->
-  <%= label_tag('post-format', "Pretty Output") %>
-  <% if show_from_session?("post-format") %>
-    <%= check_box_tag('post-format', load_key_from_session('post-format'), "checked", :id => "post-format-gallery") %>
-  <% else %>
-    <%= check_box_tag('post-format', "0", nil, :id => "post-format-gallery") %>
-  <% end %>
-
-  <%= label_tag('single-line', "Single Line Curl") %>
-  <% if show_from_session?('single-line') %>
-    <%= check_box_tag('single-line', load_key_from_session('single-line'), "checked") %>
-  <% else %>
-    <%= check_box_tag('single-line', "0", nil) %>
-  <% end %>
-
-  <hr>
   <%= render 'url_forms' %>
 
   <% unless @curl.data.nil? || @curl.data.empty? %>
@@ -39,5 +22,21 @@
       </tr>
     <% end %>
     </table>
+    <hr>
+  <% end %>
+
+  <%= link_to "Reset", @curl, remote: true, class:"btn btn-default btn-xs" %>
+  <%= label_tag('post-format', "Pretty Output") %>
+  <% if show_from_session?("post-format") %>
+    <%= check_box_tag('post-format', load_key_from_session('post-format'), "checked", :id => "post-format-gallery") %>
+  <% else %>
+    <%= check_box_tag('post-format', "0", nil, :id => "post-format-gallery") %>
+  <% end %>
+
+  <%= label_tag('single-line', "Single Line Curl") %>
+  <% if show_from_session?('single-line') %>
+    <%= check_box_tag('single-line', load_key_from_session('single-line'), "checked") %>
+  <% else %>
+    <%= check_box_tag('single-line', "0", nil) %>
   <% end %>
 <% end %>
