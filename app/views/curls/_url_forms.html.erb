@@ -1,7 +1,7 @@
 <% keys = get_keys_from_url(@curl.url) %>
 <% keys.each do |key| %>
   <table>
-      <% key.gsub!("<", "").gsub!(">", "") %>
+      <% key.gsub!("<", "").gsub!(">", "").gsub!("_", " ") %>
       <tr>
           <td width="40%">
               <%= label_tag(key, "#{key.capitalize}:") %>
