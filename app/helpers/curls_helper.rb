@@ -62,7 +62,7 @@ module CurlsHelper
   end
 
   def get_keys_from_url(url)
-    url.scan(/<\w+>/)
+    url.scan(/<.*?>/)
   end
 
   def convert_domains(array)
