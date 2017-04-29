@@ -3,7 +3,11 @@ module CurlsHelper
   def create_curl_text(obj, params)
     begin
       hash = JSON.parse(obj.data) unless (obj.data.nil? || obj.data.empty?)
-      puts params.inspect
+
+      if params["custom_key"]
+        hash = convert_custom_key(hash, params["custom_key"])
+      end
+
       params.each_pair do |key,val|
         if val != ""
           obj.url = insert_text_into_url(obj.url, key.to_s, val) unless val.is_a? Array
@@ -13,19 +17,13 @@ module CurlsHelper
         end
       end
 
-    if params['single-line'] || session['single-line']
-      curl = "curl -X#{obj.method} "
-      curl << obj.headers unless (obj.headers.nil? || obj.headers.empty?)
-      curl << " #{obj.url}"
-      curl << " -d '#{hash.to_json}'" if hash
-    else
-      curl = "curl -X#{obj.method} \\"
-      curl << "\n#{obj.headers} \\" unless (obj.headers.nil? || obj.headers.empty?)
-      curl << "\n#{obj.url}"
-      curl << " \\\n-d \\\n'#{JSON.pretty_generate(hash)}'" if hash
-    end
+      if params['single-line'] || session['single-line']
+        curl = assemble_single_line_curl(obj, hash)
+      else
+        curl = assemble_multi_line_curl(obj, hash)
+      end
 
-    curl
+      curl
     rescue
       "Oops. Something went wrong. Make sure all your entries are correct.
       If everything is accurate and you're still having an issue, contact an admin."
@@ -49,6 +47,28 @@ module CurlsHelper
         end
       end
     end
+  end
+
+  def assemble_single_line_curl(obj, hash=nil)
+    curl = "curl -X#{obj.method} "
+    curl << obj.headers unless (obj.headers.nil? || obj.headers.empty?)
+    curl << " #{obj.url}"
+    curl << " -d '#{hash.to_json}'" if hash
+    curl
+  end
+
+  def assemble_multi_line_curl(obj, hash=nil)
+    curl = "curl -X#{obj.method} \\"
+    curl << "\n#{obj.headers} \\" unless (obj.headers.nil? || obj.headers.empty?)
+    curl << "\n#{obj.url}"
+    curl << " \\\n-d \\\n'#{JSON.pretty_generate(hash)}'" if hash
+    curl
+  end
+
+  def convert_custom_key(hash, new_key)
+    hash[new_key] = hash.delete("key")
+    hash[new_key] = params["key"]
+    hash
   end
 
   def insert_text_into_url(url, text_to_replace, text_replacing)

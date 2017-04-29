@@ -15,6 +15,9 @@
       <% elsif k == "domains" || k == "attributes" %>
           <% @array_key = k %>
           <%= render 'domains_form' %>
+      <% elsif k == "key" %>
+          <td width="40%"><%= text_field_tag("custom_key", load_key_from_session("custom_key"), :onclick => 'this.select();') %></td>
+          <td width="60%"><%= text_field_tag(k, params[k], :onclick => 'this.select();') %></td>
       <% else %>
           <td width="40%"><%= label_tag(k, "#{k}:") %></td>
           <td width="60%"><%= text_field_tag(k, params[k], :onclick => 'this.select();') %></td>
