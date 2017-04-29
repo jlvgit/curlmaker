@@ -1,10 +1,10 @@
 <% keys = get_keys_from_url(@curl.url) %>
 <% keys.each do |key| %>
   <table>
-      <% key.gsub!("<", "").gsub!(">", "").gsub!("_", " ") %>
+      <% key.gsub!("<", "").gsub!(">", "") %>
       <tr>
           <td width="40%">
-              <%= label_tag(key, "#{key.capitalize}:") %>
+              <%= label_tag(key, "#{key.gsub("_", " ").capitalize}:") %>
           </td>
           <td width="60%">
             <% if key == 'stack_domain' %>
