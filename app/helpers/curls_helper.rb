@@ -9,7 +9,7 @@ module CurlsHelper
           obj.url = insert_text_into_url(obj.url, key.to_s, val) unless val.is_a? Array
           val = val.reject(&:empty?)  if val.is_a? Array
           val = convert_domains(val)  if key == "domains"
-          hash = convert_custom_key(hash, params["custom_key"]) if key == "custom_key"
+          hash = convert_custom_key(hash, params["custom_key"], params["key"]) if key == "custom_key"
           update_hash(hash, key, val) if hash
         end
       end
@@ -62,9 +62,13 @@ module CurlsHelper
     curl
   end
 
-  def convert_custom_key(hash, new_key)
-    hash[new_key] = hash.delete("key")
-    hash[new_key] = params["key"]
+  def convert_custom_key(hash, new_key, new_value)
+    if (hash.key?("key"))
+      hash[new_key] = hash.delete("key")
+      hash[new_key] = new_value
+    else
+      hash.each { |k,v| convert_custom_key(hash[k], new_key, new_value) if Hash === v }
+    end
     hash
   end
 
