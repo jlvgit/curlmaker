@@ -65,7 +65,7 @@ module CurlsHelper
   def convert_custom_key(hash, new_key, new_value)
     if (hash.key?("key"))
       hash[new_key] = hash.delete("key")
-      hash[new_key] = new_value
+      hash[new_key] = YAML.load(new_value)
     else
       hash.each { |k,v| convert_custom_key(hash[k], new_key, new_value) if Hash === v }
     end
