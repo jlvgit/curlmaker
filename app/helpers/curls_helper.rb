@@ -8,7 +8,7 @@ module CurlsHelper
         if val != ""
           obj.url = insert_text_into_url(obj.url, key.to_s, val) unless val.is_a? Array
           val = val.reject(&:empty?)  if val.is_a? Array
-          val = convert_domains(val)  if key == "domains"
+          val = convert_domains(key, val) if key == "domains" || key == "organizations_attributes"
           hash = convert_custom_key(hash, params["custom_key"], params["key"]) if key == "custom_key"
           update_hash(hash, key, val) if hash
         end
@@ -86,10 +86,11 @@ module CurlsHelper
     url.scan(/<.*?>/)
   end
 
-  def convert_domains(array)
+  def convert_domains(key, array)
     new_array = Array.new
-    array.each { |domain| new_array.push({"domain-name" => domain})}
-    new_array = [{"domain-name" => "sonian.net"}] if new_array.empty?
+    key == "domains" ? key_name = "domain-name" : key_name = "name"
+    array.each { |domain| new_array.push({key_name => domain})}
+    new_array = [{key_name => "sonian.net"}] if new_array.empty?
     new_array
   end
 

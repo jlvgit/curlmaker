@@ -12,7 +12,7 @@
       <% if k == "roles" %>
           <td width="40%"><%= label_tag(k, "#{k}:") %></td>
           <td width="60%"><%= render 'roles_form' %></td>
-      <% elsif k == "domains" || k == "attributes" %>
+      <% elsif k == "domains" || k == "attributes" || k == "organizations_attributes" %>
           <% @array_key = k %>
           <%= render 'domains_form' %>
       <% elsif k == "key" %>
