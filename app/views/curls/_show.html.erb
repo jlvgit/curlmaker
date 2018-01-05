@@ -14,9 +14,11 @@
     <%= render 'data_forms' %>
   </div>
 
+  <% docker = "sudo docker exec otto " if title['service'] == "Otto" %>
+
   <div class="col-xs-8">
     <pre contenteditable="true" id="selectme" autocomplete="off"
-         autocorrect="off" autocapitalize="off" spellcheck="false"><%=create_curl_text(@curl, params) %><span id="gallery-box"> | python -m json.tool</span></pre>
+         autocorrect="off" autocapitalize="off" spellcheck="false"><%=docker%><%=create_curl_text(@curl, params) %><span id="gallery-box"> | python -m json.tool</span></pre>
     <label for="submit-form" class="btn btn-default btn-xs" id="curl-submit">Submit</label>
     <input type="button" class="btn btn-default btn-xs" value="Select Text" id="selectme-btn"></input>
   </div>
