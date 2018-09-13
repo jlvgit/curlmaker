@@ -29,6 +29,12 @@ module CurlsHelper
 
   def update_hash(hash, key, val)
     hash.each do |k,v|
+      #handle if the json is wrapped in an array
+      if hash.is_a? Array
+        wrap_hash_in_array = true
+        hash = hash[0]
+      end
+
       if Hash === v
         update_hash(hash[k], key, val)
       else

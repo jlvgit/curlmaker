@@ -5,6 +5,7 @@
 
   <% unless @curl.data.nil? || @curl.data.empty? %>
     <% data = JSON.parse(@curl.data) %>
+    <% data = data[0] if data.is_a? Array %>
     <% data = get_all_keys(data).uniq %>
     <table>
     <% data.each do |k| %>
