@@ -49,6 +49,6 @@ class CurlsController < ApplicationController
 private
 
   def curl_params
-    params.require(:curl).permit(:id, :name, :method, :headers, :url, :data, :service)
+    params.require(:curl).permit(:id, :name, :method, :headers, :url, :data, :service, :notes)
   end
 end

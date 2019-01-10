@@ -22,5 +22,9 @@
     <label for="submit-form" class="btn btn-default btn-xs" id="curl-submit">Submit</label>
     <input type="button" class="btn btn-default btn-xs" value="Select Text" id="selectme-btn"></input>
   </div>
-
+  <div class="col-xs-8">
+    <p>
+      <%= simple_format(@curl.notes) %>
+    </p>
+  </div>
 </div>

@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902224228) do
+ActiveRecord::Schema.define(version: 20190110153420) do
 
   create_table "curls", force: :cascade do |t|
     t.string   "name"
     t.string   "method"
     t.string   "headers"
     t.string   "url"
-    t.text     "data"
+    t.         "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "service"
+    t.text     "notes"
   end
 
   create_table "users", force: :cascade do |t|

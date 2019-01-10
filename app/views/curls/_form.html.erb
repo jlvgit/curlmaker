@@ -39,6 +39,11 @@
    <%= f.text_area :data, size: "100x20", placeholder: "** Json **" %>
   </div>
   <br>
+  <div class="field">
+   <%= f.label :notes %><br>
+   <%= f.text_area :notes, size: "100x20", placeholder: "Write any useful information about this curl here." %>
+  </div>
+  <br>
 
   <div class="actions">
    <%= f.submit %>
