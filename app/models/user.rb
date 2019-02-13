@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:microsoft_o365]
+  devise :omniauthable, :omniauth_providers => [:microsoft_office365]
 
   def self.from_omniauth(access_token)
     data = access_token.info
@@ -10,8 +10,8 @@ class User < ApplicationRecord
 
     # Uncomment the section below if you want users to be created if they don't exist
     unless user
-      puts data
-        user = User.create(name: data["name"],
+      #puts data (this shows the info in the response from the oauth like name and email)
+        user = User.create(name: data["first_name"],
            email: data["email"],
            password: Devise.friendly_token[0,20]
         )
