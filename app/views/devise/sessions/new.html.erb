@@ -5,6 +5,8 @@
   </br>
   <%= link_to image_tag("btn_google_signin_dark_normal_web.png"),
       user_google_oauth2_omniauth_authorize_path %>
+
+  <%= link_to "Sign in with Microsoft", user_microsoft_o365_omniauth_authorize_path %>
   <h6>OR</h6>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
